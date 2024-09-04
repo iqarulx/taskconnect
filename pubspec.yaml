@@ -1,0 +1,50 @@
+name: taskconnect
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.4 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.6
+  flutter_native_splash: ^2.0.4
+  iconsax: ^0.0.8
+  syncfusion_flutter_datagrid: ^26.1.41
+  intl: ^0.19.0
+  lottie: ^3.1.2
+  shared_preferences: ^2.2.3
+  http: ^1.2.1
+  file_picker: ^8.0.0+1
+  permission_handler: ^11.3.1
+  flutter_pdfview: ^1.3.2
+  open_file: ^3.3.2
+  syncfusion_flutter_pdfviewer: ^26.1.41
+  syncfusion_flutter_datagrid_export: ^26.1.42
+  syncfusion_flutter_xlsio: ^26.1.42
+  syncfusion_flutter_charts: ^26.1.42
+  animated_custom_dropdown: ^3.1.1
+  path_provider: ^2.1.4
+  path_provider_platform_interface: ^2.1.2
+  package_info_plus: ^8.0.1
+  webview_flutter: ^4.8.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images/
+    - assets/lottie/
+    - assets/decorators/
