@@ -1,32 +1,31 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:taskconnect/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp(
-      isLogin: true,
-    ));
+  testWidgets('Login screen smoke test', (WidgetTester tester) async {
+    // Build the login screen and trigger a frame.
+    await tester.pumpWidget(const MyApp(isLogin: false));
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Check if the login page displays necessary elements.
+    expect(find.text('Login'),
+        findsOneWidget); // Verify the 'Login' text is displayed
+    expect(
+        find.byType(TextFormField),
+        findsNWidgets(
+            2)); // Assuming there are two TextFields (username & password)
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    // Enter text in the username and password fields.
+    await tester.enterText(
+        find.byKey(const Key('usernameKey')), 'test_user@icloud.com');
+    await tester.enterText(find.byKey(const Key('passwordKey')), 'password123');
+
+    // Tap the login button and trigger a frame.
+    await tester.tap(find.byType(GestureDetector));
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Assuming after login success, there's a 'Welcome' text or some indicator.
+    expect(find.text('Welcome'),
+        findsOneWidget); // Verifies the login was successful and redirected to a welcome screen
   });
 }

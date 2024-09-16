@@ -23,6 +23,9 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  GlobalKey usernameKey = GlobalKey();
+  GlobalKey passwordKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -72,6 +75,7 @@ class _LoginViewState extends State<LoginView> {
                       width: 140,
                     ),
                     TextFormField(
+                      key: usernameKey,
                       controller: username,
                       onEditingComplete: () {
                         setState(() {
@@ -120,6 +124,7 @@ class _LoginViewState extends State<LoginView> {
                       height: 20,
                     ),
                     TextFormField(
+                      key: passwordKey,
                       onEditingComplete: () {
                         setState(() {
                           FocusManager.instance.primaryFocus!.unfocus();
